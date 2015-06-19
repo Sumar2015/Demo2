@@ -21,6 +21,7 @@ namespace demoLog.DAL
             };
             instructors.ForEach(s => context.Instructor.Add(s));
             context.SaveChanges();
+
             var students = new List<Student>
             {
             new Student{FirstMidName="Carson",LastName="Alexander",EnrollmentDate=DateTime.Parse("2005-09-01")},
@@ -32,9 +33,9 @@ namespace demoLog.DAL
             new Student{FirstMidName="Laura",LastName="Norman",EnrollmentDate=DateTime.Parse("2003-09-01")},
             new Student{FirstMidName="Nino",LastName="Olivetto",EnrollmentDate=DateTime.Parse("2005-09-01")}
             };
-
             students.ForEach(s => context.Students.Add(s));
             context.SaveChanges();
+
             var courses = new List<Course>
             {
              new Course{CourseID=1050,Title="C++ programming",Credits=3,},
@@ -47,6 +48,7 @@ namespace demoLog.DAL
             };
             courses.ForEach(s => context.Courses.Add(s));
             context.SaveChanges();
+
             var enrollments = new List<Enrollment>
             {
             new Enrollment{StudentID=1,CourseID=1050,Grade=Grade.A},
@@ -63,6 +65,35 @@ namespace demoLog.DAL
             new Enrollment{StudentID=7,CourseID=3141,Grade=Grade.A},
             };
             enrollments.ForEach(s => context.Enrollments.Add(s));
+            context.SaveChanges();
+
+            var posts = new List<PostItem>
+            {
+                new PostItem
+                {
+                    Category="Network",
+                    Title="Message from instructor.",
+                    DateCreated=DateTime.Parse("2014-08-25"),
+                    Text="New course getting started, hopefully everybody got there paper and pencil ready!!"
+                },
+
+                new PostItem
+                {
+                    Category="Message from instructor.",
+                    Title="C++ programming",
+                    DateCreated=DateTime.Parse("2014-08-25"),
+                    Text="Stundents must have finished homework1 before next friday."
+                },
+
+                new PostItem
+                {
+                    Category="Message to students",
+                    Title="Operating systems",
+                    DateCreated=DateTime.Parse("2014-08-25"),
+                    Text="Let the party begin!!"
+                },
+            };
+            posts.ForEach(p => context.Posts.Add(p));
             context.SaveChanges();
         }
     }
