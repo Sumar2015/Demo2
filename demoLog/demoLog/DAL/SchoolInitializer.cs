@@ -74,21 +74,21 @@ namespace demoLog.DAL
                     Category="Network",
                     Title="Message from instructor.",
                     DateCreated=DateTime.Parse("2014-08-25"),
-                    Text="New course getting started, hopefully everybody got there paper and pencil ready!!"
+                    Text="New course getting started, hopefully everybody got their paper and pencil ready!!"
                 },
 
                 new PostItem
                 {
-                    Category="Message from instructor.",
-                    Title="C++ programming",
+                    Category="C++ programming",
+                    Title="Message from instructor.",
                     DateCreated=DateTime.Parse("2014-08-25"),
                     Text="Stundents must have finished homework1 before next friday."
                 },
 
                 new PostItem
                 {
-                    Category="Message to students",
-                    Title="Operating systems",
+                    Category="Operating systems",
+                    Title="Message to students",
                     DateCreated=DateTime.Parse("2014-08-25"),
                     Text="Let the party begin!!"
                 },
