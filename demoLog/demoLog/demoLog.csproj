@@ -262,6 +262,7 @@
     <Content Include="Views\PostItems\Details.cshtml" />
     <Content Include="Views\PostItems\Edit.cshtml" />
     <Content Include="Views\PostItems\Index.cshtml" />
+    <Content Include="Views\PostItems\PostsForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
