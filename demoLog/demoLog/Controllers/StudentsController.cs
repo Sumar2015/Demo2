@@ -39,7 +39,9 @@ namespace demoLog.Controllers
         // GET: Students/Create
         public ActionResult Create()
         {
-            return View();
+            StudentViewModel studentViewModel = new StudentViewModel();
+            studentViewModel.DateCreated = DateTime.Now;
+            return View(studentViewModel);
         }
 
         // POST: Students/Create
