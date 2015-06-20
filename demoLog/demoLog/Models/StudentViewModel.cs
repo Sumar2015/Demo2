@@ -12,7 +12,7 @@ namespace demoLog.Models
     {
         public StudentViewModel()
         {
-            DateCreated = DateTime.Now;
+            EnrollmentDate = DateTime.Now;
             Courses = new List<SelectListItem>();
             Courses.Add(new SelectListItem { Text = "-Select-", Value = "", Selected = true });
             Courses.Add(new SelectListItem { Text = "Operating systems", Value = "Operating systems" });
@@ -28,7 +28,6 @@ namespace demoLog.Models
         public string FirstMidName { get; set; }
         public DateTime EnrollmentDate { get; set; }
         public virtual ICollection<Enrollment> Enrollments { get; set; }
-        public DateTime DateCreated { get; set; }
         public List<SelectListItem> Courses { get; set; }
         public string Course { get; set; }
     }
