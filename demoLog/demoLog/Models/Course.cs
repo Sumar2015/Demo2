@@ -12,6 +12,7 @@ namespace demoLog.Models
         public int CourseID { get; set; }
         public string Title { get; set; }
         public int Credits { get; set; }
+        public string Students { get; set; }
 
         public virtual ICollection<Enrollment> Enrollments { get; set; }
     }
