@@ -14,11 +14,13 @@ namespace demoLog.Controllers
     public class PostItemsController : Controller
     {
         private SchoolContext db = new SchoolContext();
+        private PostRepo postRepo = new PostRepo();
 
         // GET: PostItems
         public ActionResult Index()
         {
-            return View(db.Posts.ToList());
+            var result = postRepo.GetAllPosts();
+            return View(result);
         }
 
         // GET: PostItems/Details/5
@@ -28,7 +30,7 @@ namespace demoLog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PostItem postItem = db.Posts.Find(id);
+            PostItem postItem = postRepo.GetPostsById(id);
             if (postItem == null)
             {
                 return HttpNotFound();
@@ -53,8 +55,7 @@ namespace demoLog.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Posts.Add(postItem);
-                db.SaveChanges();
+                postRepo.AddPost(postItem);
                 return RedirectToAction("Index");
             }
 
@@ -68,7 +69,7 @@ namespace demoLog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PostItem postItem = db.Posts.Find(id);
+            PostItem postItem = postRepo.GetPostsById(id);
             if (postItem == null)
             {
                 return HttpNotFound();
@@ -85,8 +86,7 @@ namespace demoLog.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(postItem).State = EntityState.Modified;
-                db.SaveChanges();
+                postRepo.UpdatePosts(postItem);
                 return RedirectToAction("Index");
             }
             return View(postItem);
@@ -99,7 +99,7 @@ namespace demoLog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PostItem postItem = db.Posts.Find(id);
+            PostItem postItem = postRepo.GetPostsById(id);
             if (postItem == null)
             {
                 return HttpNotFound();
@@ -112,9 +112,8 @@ namespace demoLog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PostItem postItem = db.Posts.Find(id);
-            db.Posts.Remove(postItem);
-            db.SaveChanges();
+            PostItem postItem = postRepo.GetPostsById(id);
+            postRepo.DeletePost(postItem);
             return RedirectToAction("Index");
         }
 
