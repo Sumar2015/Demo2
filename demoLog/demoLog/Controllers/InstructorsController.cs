@@ -8,17 +8,20 @@ using System.Web;
 using System.Web.Mvc;
 using demoLog.DAL;
 using demoLog.Models;
+using demoLog.Repository;
 
 namespace demoLog.Controllers
 {
     public class InstructorsController : Controller
     {
         private SchoolContext db = new SchoolContext();
+        private InstructorRepo instructorRepo = new InstructorRepo();
 
         // GET: Instructors
         public ActionResult Index()
         {
-            return View(db.Instructor.ToList());
+            var result = instructorRepo.GetAllInstructors();
+            return View(result);
         }
 
         // GET: Instructors/Details/5

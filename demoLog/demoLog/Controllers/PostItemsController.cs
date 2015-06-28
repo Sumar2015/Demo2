@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using demoLog.DAL;
 using demoLog.Models;
+using demoLog.Repository;
 
 namespace demoLog.Controllers
 {

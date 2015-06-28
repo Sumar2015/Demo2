@@ -13,11 +13,11 @@ namespace demoLog.DAL
         {
             var instructors = new List<Instructor>
             {
-                new Instructor{FirstMidName="Daníel Brandur",LastName="Sigurgeirsson",EnrollmentDate=DateTime.Parse("2005-09-01")},
-                new Instructor{FirstMidName="Freysteinn",LastName="Alfreðsson",EnrollmentDate=DateTime.Parse("2005-09-01")},
-                new Instructor{FirstMidName="Hjalti",LastName="Magnússon",EnrollmentDate=DateTime.Parse("2005-09-01")},
-                new Instructor{FirstMidName="Hallgrímur",LastName="Arnalds",EnrollmentDate=DateTime.Parse("2005-09-01")},
-                new Instructor{FirstMidName="Halldóra",LastName="Jóhannsdóttir",EnrollmentDate=DateTime.Parse("2005-09-01")},
+                new Instructor{FirstMidName="Daníel Brandur",LastName="Sigurgeirsson",Course="Networks",EnrollmentDate=DateTime.Parse("2005-09-01")},
+                new Instructor{FirstMidName="Freysteinn",LastName="Alfreðsson",Course="Operating system",EnrollmentDate=DateTime.Parse("2005-09-01")},
+                new Instructor{FirstMidName="Hjalti",LastName="Magnússon",Course="Data structures and functional programming",EnrollmentDate=DateTime.Parse("2005-09-01")},
+                new Instructor{FirstMidName="Hallgrímur",LastName="Arnalds",Course="C++ programming",EnrollmentDate=DateTime.Parse("2005-09-01")},
+                new Instructor{FirstMidName="Halldóra",LastName="Jóhannsdóttir",Course="Introduction to Theory of Computing",EnrollmentDate=DateTime.Parse("2005-09-01")},
             };
             instructors.ForEach(s => context.Instructor.Add(s));
             context.SaveChanges();
