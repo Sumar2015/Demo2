@@ -9,7 +9,29 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<div>
+    @foreach (var item in Model)
+    {
+        <div class="well">
+            <h3>
+                @Html.ActionLink(item.Title, "Edit", new { id = item.CourseID }) <text class="pull-right">@Html.DisplayNameFor(model => model.Credits) @Html.DisplayFor(modelItem => item.Credits) </text>
+            </h3>
+            <h4>
+                @Html.DisplayNameFor(model => model.Students):
+            </h4>
+            <p>
+                @Html.DisplayFor(modelItem => item.Students)
+            </p>
+            <h4>
+                @Html.DisplayNameFor(model => model.Instructor):
+            </h4>
+            <p>
+                @Html.DisplayFor(modelItem => item.Instructor)
+            </p>
+        </div>
+    }
+</div>
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Title)
@@ -36,4 +58,4 @@
     </tr>
 }
 
-</table>
+</table>*@

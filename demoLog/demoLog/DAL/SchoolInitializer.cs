@@ -38,13 +38,13 @@ namespace demoLog.DAL
 
             var courses = new List<Course>
             {
-             new Course{CourseID=1050,Title="C++ programming",Credits=3,Students="Carson Alexander, Meredith Alonso, Arturo Anand"},
-             new Course{CourseID=4022,Title="Networks",Credits=3,Students="Gytis Barzadukas, Yan Li, Peggy Justice"},
-             new Course{CourseID=4041,Title="Data structures and functional programming",Credits=3,},
-             new Course{CourseID=1045,Title="Operating systems",Credits=4,Students="Laura Norman, Nino Olivetto"},
-             new Course{CourseID=3141,Title="Programming languages",Credits=4,},
-             new Course{CourseID=2021,Title="Practicum in Artificial Intelligence",Credits=3,},
-             new Course{CourseID=2042,Title="Introduction to Theory of Computing",Credits=4,}       
+             new Course{CourseID=1050,Title="C++ programming",Credits=3,Students="Carson Alexander, Meredith Alonso, Arturo Anand",Instructor="Hallgrimur Arnalds"},
+             new Course{CourseID=4022,Title="Networks",Credits=3,Students="Gytis Barzadukas, Yan Li, Peggy Justice",Instructor="Daníel Brandur Sigurgeirsson"},
+             new Course{CourseID=4041,Title="Data structures and functional programming",Credits=3,Instructor="Hjalti Magnússon"},
+             new Course{CourseID=1045,Title="Operating systems",Credits=4,Students="Laura Norman, Nino Olivetto",Instructor="Freysteinn Alfreðsson"},
+             new Course{CourseID=3141,Title="Programming languages",Credits=4,Instructor="No instructor"},
+             new Course{CourseID=2021,Title="Practicum in Artificial Intelligence",Credits=3,Instructor="No instructor"},
+             new Course{CourseID=2042,Title="Introduction to Theory of Computing",Credits=4,Instructor="Halldóra Jóhannsdóttir"}       
             };
             courses.ForEach(s => context.Courses.Add(s));
             context.SaveChanges();

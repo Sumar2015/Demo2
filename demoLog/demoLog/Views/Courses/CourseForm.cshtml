@@ -38,10 +38,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Course, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Instructor, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Course, Model.Courses)
-                @Html.ValidationMessageFor(model => model.Course)
+                @Html.DropDownListFor(model => model.Instructor, Model.Instructor)
+                @Html.ValidationMessageFor(model => model.Instructor)
             </div>
         </div>
 

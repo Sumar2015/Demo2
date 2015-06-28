@@ -12,15 +12,14 @@ namespace demoLog.Models
         public CourseViewModel()
         {
             DateCreated = DateTime.Now;
-            Courses = new List<SelectListItem>();
-            Courses.Add(new SelectListItem { Text = "-Select-", Value = "", Selected = true });
-            Courses.Add(new SelectListItem { Text = "Operating systems", Value = "Operating systems" });
-            Courses.Add(new SelectListItem { Text = "Programming languages", Value = "Programming languages" });
-            Courses.Add(new SelectListItem { Text = "Networks", Value = "Networks" });
-            Courses.Add(new SelectListItem { Text = "C++ programming", Value = "C++ programming" });
-            Courses.Add(new SelectListItem { Text = "Data structures and functional programming", Value = "Data structures and functional programming" });
-            Courses.Add(new SelectListItem { Text = "Practicum in Artificial Intelligence", Value = "Practicum in Artificial Intelligence" });
-            Courses.Add(new SelectListItem { Text = "Introduction to Theory of Computing", Value = "Introduction to Theory of Computing" });
+            Instructor = new List<SelectListItem>();
+            Instructor.Add(new SelectListItem { Text = "-Select-", Value = "", Selected = true });
+            Instructor.Add(new SelectListItem { Text = "Daníel Brandur Sigurgeirsson", Value = "Daníel Brandur Sigurgeirsson" });
+            Instructor.Add(new SelectListItem { Text = "Hallgrímur Arnalds", Value = "Hallgrímur Arnalds" });
+            Instructor.Add(new SelectListItem { Text = "Hjalti Magnússon", Value = "Hjalti Magnússon" });
+            Instructor.Add(new SelectListItem { Text = "Freysteinn Alfreðsson", Value = "Freysteinn Alfreðsson" });
+            Instructor.Add(new SelectListItem { Text = "Halldóra Jóhannsdóttir", Value = "Halldóra Jóhannsdóttir" });
+            Instructor.Add(new SelectListItem { Text = "-No instructor-", Value = "-No instructor-" });
 
             Credit = new List<SelectListItem>();
             Credit.Add(new SelectListItem { Text = "-Select-", Value = "", Selected = true });
@@ -37,7 +36,7 @@ namespace demoLog.Models
         public int Credits { get; set; }
         public List<SelectListItem> Credit { get; set; }
         public DateTime DateCreated { get; set; }
-        public List<SelectListItem> Courses { get; set; }
+        public List<SelectListItem> Instructor { get; set; }
         public string Course { get; set; }
         public virtual ICollection<Enrollment> Enrollments { get; set; }
     }
