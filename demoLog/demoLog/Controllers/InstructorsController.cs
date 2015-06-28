@@ -31,7 +31,7 @@ namespace demoLog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Instructor instructor = db.Instructor.Find(id);
+            Instructor instructor = instructorRepo.GetInstructorById(id);
             if (instructor == null)
             {
                 return HttpNotFound();
@@ -54,8 +54,7 @@ namespace demoLog.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Instructor.Add(instructor);
-                db.SaveChanges();
+                instructorRepo.AddInstructor(instructor);
                 return RedirectToAction("Index");
             }
 
@@ -69,7 +68,7 @@ namespace demoLog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Instructor instructor = db.Instructor.Find(id);
+            Instructor instructor = instructorRepo.GetInstructorById(id);
             if (instructor == null)
             {
                 return HttpNotFound();
@@ -86,8 +85,7 @@ namespace demoLog.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(instructor).State = EntityState.Modified;
-                db.SaveChanges();
+                instructorRepo.AddInstructor(instructor);
                 return RedirectToAction("Index");
             }
             return View(instructor);
@@ -100,7 +98,7 @@ namespace demoLog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Instructor instructor = db.Instructor.Find(id);
+            Instructor instructor = instructorRepo.GetInstructorById(id);
             if (instructor == null)
             {
                 return HttpNotFound();
@@ -113,9 +111,8 @@ namespace demoLog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Instructor instructor = db.Instructor.Find(id);
-            db.Instructor.Remove(instructor);
-            db.SaveChanges();
+            Instructor instructor = instructorRepo.GetInstructorById(id);
+            instructorRepo.DeleteInstructor(instructor);
             return RedirectToAction("Index");
         }
 

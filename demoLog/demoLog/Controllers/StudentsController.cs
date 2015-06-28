@@ -8,17 +8,20 @@ using System.Web;
 using System.Web.Mvc;
 using demoLog.DAL;
 using demoLog.Models;
+using demoLog.Repository;
 
 namespace demoLog.Controllers
 {
     public class StudentsController : Controller
     {
         private SchoolContext db = new SchoolContext();
+        private StudentRepo studentRepo = new StudentRepo();
 
         // GET: Students
         public ActionResult Index()
         {
-            return View(db.Students.ToList());
+            var result = studentRepo.GetAllStudents();
+            return View(result);
         }
 
         // GET: Students/Details/5
@@ -28,7 +31,7 @@ namespace demoLog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            Student student = studentRepo.GetStudentById(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -53,8 +56,7 @@ namespace demoLog.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Students.Add(student);
-                db.SaveChanges();
+                studentRepo.AddStudent(student);
                 return RedirectToAction("Index");
             }
 
@@ -68,7 +70,7 @@ namespace demoLog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            Student student = studentRepo.GetStudentById(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -85,8 +87,7 @@ namespace demoLog.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(student).State = EntityState.Modified;
-                db.SaveChanges();
+                studentRepo.UpdateStudent(student);
                 return RedirectToAction("Index");
             }
             return View(student);
@@ -99,7 +100,7 @@ namespace demoLog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            Student student = studentRepo.GetStudentById(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -112,9 +113,8 @@ namespace demoLog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Student student = db.Students.Find(id);
-            db.Students.Remove(student);
-            db.SaveChanges();
+            Student student = studentRepo.GetStudentById(id);
+            studentRepo.DeleteStudent(student);
             return RedirectToAction("Index");
         }
 

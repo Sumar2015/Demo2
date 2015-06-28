@@ -17,7 +17,7 @@ namespace demoLog.Repository
                           select n).Take(10);
             return result;
         }
-        public Instructor GetPostsById(int? id)
+        public Instructor GetInstructorById(int? id)
         {
             var result = (from n in m_db.Instructor
                           where n.ID == id
@@ -31,9 +31,9 @@ namespace demoLog.Repository
             m_db.SaveChanges();
         }
 
-        public void UpdatePosts(Instructor n)
+        public void UpdateInstructor(Instructor n)
         {
-            Instructor p = GetPostsById(n.ID);
+            Instructor p = GetInstructorById(n.ID);
             if (p != null)
             {
                 p.LastName = n.LastName;
@@ -43,7 +43,7 @@ namespace demoLog.Repository
             }
         }
 
-        public void DeletePost(Instructor n)
+        public void DeleteInstructor(Instructor n)
         {
             m_db.Instructor.Remove(n);
             m_db.SaveChanges();

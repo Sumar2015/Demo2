@@ -8,17 +8,20 @@ using System.Web;
 using System.Web.Mvc;
 using demoLog.DAL;
 using demoLog.Models;
+using demoLog.Repository;
 
 namespace demoLog.Controllers
 {
     public class CoursesController : Controller
     {
         private SchoolContext db = new SchoolContext();
+        private CourseRepo courseRepo = new CourseRepo();
 
         // GET: Courses
         public ActionResult Index()
         {
-            return View(db.Courses.ToList());
+            var result = courseRepo.GetAllCourses();
+            return View(result);
         }
 
         // GET: Courses/Details/5
@@ -28,7 +31,7 @@ namespace demoLog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Course course = db.Courses.Find(id);
+            Course course = courseRepo.GetCourseById(id);
             if (course == null)
             {
                 return HttpNotFound();
@@ -53,8 +56,7 @@ namespace demoLog.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Courses.Add(course);
-                db.SaveChanges();
+                courseRepo.AddCourse(course);
                 return RedirectToAction("Index");
             }
 
@@ -68,7 +70,7 @@ namespace demoLog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Course course = db.Courses.Find(id);
+            Course course = courseRepo.GetCourseById(id);
             if (course == null)
             {
                 return HttpNotFound();
@@ -85,8 +87,7 @@ namespace demoLog.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(course).State = EntityState.Modified;
-                db.SaveChanges();
+                courseRepo.UpdateCourse(course);
                 return RedirectToAction("Index");
             }
             return View(course);
@@ -99,7 +100,7 @@ namespace demoLog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Course course = db.Courses.Find(id);
+            Course course = courseRepo.GetCourseById(id);
             if (course == null)
             {
                 return HttpNotFound();
@@ -112,9 +113,8 @@ namespace demoLog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Course course = db.Courses.Find(id);
-            db.Courses.Remove(course);
-            db.SaveChanges();
+            Course course = courseRepo.GetCourseById(id);
+            courseRepo.DeleteCourse(course);
             return RedirectToAction("Index");
         }
 
