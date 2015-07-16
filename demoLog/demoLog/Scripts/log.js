@@ -3,8 +3,9 @@
 //$(document).ready(function () {
 //    $("a").click(function () {
 //        var urlValue = $(this).attr("href");
-//        logArray = urlValue;
+//        var link = location.href;
 //        console.log(urlValue);
+//        console.log(link);
 //    })
 //});
 //console.log(logArray);
@@ -12,9 +13,8 @@
 (function ($) {
     $.fn.logActivity = function () {
         var urlValue
-        $(this).click( urlValue = $(this).attr("href"));
+        $(this).click(urlValue = location.href);
         (console.log(urlValue));
-        
     };
 }(jQuery));
 
