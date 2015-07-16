@@ -1,4 +1,5 @@
 ﻿var logArray = [];
+i = 0;
 //This is working to write out to console... but not staying there :(
 //$(document).ready(function () {
 //    $("a").click(function () {
@@ -14,12 +15,23 @@
     $.fn.logActivity = function () {
         var urlValue
         $(this).click(urlValue = location.href);
-        (console.log(urlValue));
+        logArray[i++] = urlValue;
+        //console.log(urlValue);
+        //for (var j in logArray) {
+        //    console.log(logArray[j]);
+        //}
     };
 }(jQuery));
-
 $("a").logActivity();
 
+(function ($) {
+    $.fn.runArray = function () {
+        for (var j in logArray) {
+            console.log(logArray[j]);
+        }
+    };
+}(jQuery));
+$(document).runArray();
 
 //$(document).ready(function () {
 //    $("p").click(function () {
