@@ -1,15 +1,25 @@
-﻿console.log("Testing this log.js")
-console.log("And it worked :)")
+﻿var logArray = [];
+//This is working to write out to console... but not staying there :(
+//$(document).ready(function () {
+//    $("a").click(function () {
+//        var urlValue = $(this).attr("href");
+//        logArray = urlValue;
+//        console.log(urlValue);
+//    })
+//});
+//console.log(logArray);
 
-var logArray = ["test"];
-//This is working to write out to console... but not like it should be :(
-$(document).ready(function () {
-    $("a").click(function(){
-        logArray = this.URL;
-        (console.log("Testing ActionLink"));
-    })
-});
-console.log(logArray);
+(function ($) {
+    $.fn.logActivity = function () {
+        var urlValue
+        $(this).click( urlValue = $(this).attr("href"));
+        (console.log(urlValue));
+        
+    };
+}(jQuery));
+
+$("a").logActivity();
+
 
 //$(document).ready(function () {
 //    $("p").click(function () {
