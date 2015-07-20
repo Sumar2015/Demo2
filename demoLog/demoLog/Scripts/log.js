@@ -1,20 +1,20 @@
 ﻿;
 var logArray = [];
+var urlStorage;
 var index = 0;
 
 (function ($) {
     $.fn.logActivity = function () {
-        var urlValue;
-        var stopper = 20;
-        for (var j = 0; stopper > j; j++) {
-            $(this).click(urlValue = location.href);
-            logArray[index] = urlValue;
-            index++;
-        }
+        $(this).click(urlStorage = location.href);
+        logArray.push(urlStorage);
+        
     };
 }(jQuery));
 $("a").logActivity();
 
-$.each(logArray, function (index, href) {
-    console.log(index + ": " + href);
-})
+console.log(urlStorage);
+console.log(logArray);
+
+//$.each(logArray, function (index, href) {
+//    console.log(index + ": " + href);
+//})
