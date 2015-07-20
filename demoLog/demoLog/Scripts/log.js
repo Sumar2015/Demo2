@@ -1,5 +1,6 @@
-﻿var logArray = [];
-i = 0;
+﻿;
+var logArray = [];
+var i = 0;
 //This is working to write out to console... but not staying there :(
 //$(document).ready(function () {
 //    $("a").click(function () {
@@ -13,38 +14,29 @@ i = 0;
 
 (function ($) {
     $.fn.logActivity = function () {
-        var urlValue
+        var urlValue;
         $(this).click(urlValue = location.href);
-        logArray[i++] = urlValue;
-        //console.log(urlValue);
-        //for (var j in logArray) {
-        //    console.log(logArray[j]);
+        //logArray[i] = urlValue;
+        $.each(urlValue, function (href) { logArray.push(href);})
+        //for (var i in logArray) {
+        //    logArray[i] = urlValue;
         //}
     };
 }(jQuery));
 $("a").logActivity();
 
-(function ($) {
-    $.fn.runArray = function () {
-        for (var j in logArray) {
-            console.log(logArray[j]);
-        }
-    };
-}(jQuery));
-$(document).runArray();
+$.each(logArray, function (index, href) {
+    console.log(index + ": " + href);
+})
 
-//$(document).ready(function () {
-//    $("p").click(function () {
-//        $(this).fadeOut();
-//    });
-//});
-
-//Not working at all!
-//$(document).ready(function () {
-//    var objReWrite = {
-//        test: function () {
-//            $(console.log("testing actionLink()"));
-//        }
+//(function ($) {
+//    $.fn.runArray = function () {
+//        $.each(logArray, function (index, href) {
+//            console.log(index + ": " + href);
+//        })
+//        //for (var j in logArray) {
+//        //    console.log(logArray[j]);
+//        //}
 //    };
-//    $("a").click($.proxy(objReWrite, "test"));
-//});
+//}(jQuery));
+//$("div").runArray();
