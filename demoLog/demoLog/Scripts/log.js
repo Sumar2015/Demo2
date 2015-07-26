@@ -12,12 +12,11 @@ var index = 0;
             //console.log("Link: " + urlStorage);
 
             //add to localStorage
-            var counter = 0;
+            var counter = localStorage.length;
             localStorage.setItem(counter, urlStorage);
-            alert(localStorage.getItem);
-
+            
             //clear localStorage
-            if (localStorage.lengt > 20){
+            if (localStorage.length > 5) {
                 localStorage.clear();
             }
 
@@ -25,13 +24,6 @@ var index = 0;
             $.each(localStorage, function (index, link) {
                 console.log(index + ": " + link);
             })
-
-            //test that didn't work
-            //for (var i = 0; i < 20; i++) {
-            //    var counter = i;
-            //    localStorage.setItem(counter, urlStorage);
-            //    break;
-            //}
 
         }
     });
