@@ -16,7 +16,7 @@ var index = 0;
             localStorage.setItem(counter, urlStorage);
             
             //clear localStorage
-            if (localStorage.length > 5) {
+            if (localStorage.length > 20) {
                 localStorage.clear();
             }
 
