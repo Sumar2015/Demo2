@@ -1,10 +1,32 @@
-(function ($){
-	//TODO:ná að kalla á og setja "a href" link inn í array
-	$.fn.logActivity = function(){
-		return this.each( function(){
+;
+var logArray = [];
+var urlStorage;
+var index = 0;
 
-		});
-	};
-})(jQuery);
+(function ($) {
+    $.fn.extend({
+        logPlugin: function () {
 
-$("a").logActivity();
+            //getting href
+            $(this).click(urlStorage = location.href);
+
+            //add to localStorage
+            var counter = localStorage.length;
+            localStorage.setItem(counter, urlStorage);
+            
+            //clear localStorage
+            if (localStorage.length > 20) {
+                localStorage.clear();
+            }
+
+            //showing reasult
+            $.each(localStorage, function (index, link) {
+                console.log(index + ": " + link);
+            })
+
+        }
+    });
+   
+}(jQuery));
+
+$("a").logPlugin();
