@@ -4,29 +4,22 @@ var urlStorage;
 var index = 0;
 var test;
 var type1;
+var button;
 
 (function ($) {
     $.fn.extend({
         logPlugin: function () {
 
             //onClickHref function that gets information about link clicked on
-            (function onClickHref (event) { 
-                $(event).click(urlStorage = location.href);
+            (function onClickHref(element) {
+                $(this).click(urlStorage = location.href, type1 = typeof this);
                 test = Date();
-                type1 = $(event).type;
                 console.log("url: " + urlStorage + "\n"
                     + "time: " + test + "\n"
-                    + "type: " + $.event.type);
+                    + "type: " + type1 + "\n");
             })()
-
-            //showing reasult
-            //$.each(localStorage, function (index, link) {
-            //    console.log(index + ": " + link);
-            //})
-
         }
-    });
-   
+    }); 
 }(jQuery));
 
 $("*").logPlugin();
