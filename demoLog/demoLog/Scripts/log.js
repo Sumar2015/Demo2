@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     $("a").click(function (event) {
-        alert("tag: " + (event.target.tagName).toLowerCase());
-        alert("X coordinates: " + event.pageX + "\n" + "Y coordinates: " + event.pageY);
+        console.log("outside main function :(" + "\n" + "tag: " + (event.target.tagName).toLowerCase());
+        console.log("X coordinates: " + event.pageX + "\n" + "Y coordinates: " + event.pageY);
     });
 });
 
@@ -20,12 +20,12 @@
         //onClickHref function that gets information about link clicked on
         (function onClickHref() {
             $("a").click(function (event) {
-                return logArray = {
-                    urlStorage : location.href,
-                    date : Date(),
-                    tag : event.target.tagName,
+                logArray = {
+                    urlStorage: location.href,
+                    date: Date(),
+                    /*tag : event.target.tagName,
                     xCor : event.pageX,
-                    yCor : event.pageY
+                    yCor : event.pageY*/
                 }
                 console.log(logArray);
             }())
