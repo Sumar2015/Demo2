@@ -2,24 +2,31 @@
 var logArray = [];
 var urlStorage;
 var index = 0;
-var test;
-var type1;
-var button;
+var date;
+var tag;
+var xCor, yCor;
 
 (function ($) {
-    $.fn.extend({
-        logPlugin: function () {
+    $.fn.logPlugin = function () {
 
-            //onClickHref function that gets information about link clicked on
-            (function onClickHref(element) {
-                $(this).click(urlStorage = location.href, type1 = this.target);
-                test = Date();
-                console.log("url: " + urlStorage + "\n"
-                    + "time: " + test + "\n"
-                    + "type: " + type1 + "\n");
-            })()
-        }
-    }); 
+        //onClickHref function that gets information about link clicked on
+        (function onClickHref() {
+            var event;
+            $('a').click(function (event) {
+                logArray = {
+                    urlStorage : location.href,
+                    date : Date(),
+                    /*tag : this.event.target.tagName,
+                    xCor : this.event.pageX,
+                    yCor : this.event.pageY,*/
+                }
+                console.log(logArray);
+            }())
+        })()
+        //todo:
+        //function for button, input including keydown
+    
+    };
 }(jQuery));
 
 $("*").logPlugin();
