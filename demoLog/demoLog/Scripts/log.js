@@ -12,7 +12,7 @@ var button;
 
             //onClickHref function that gets information about link clicked on
             (function onClickHref(element) {
-                $(this).click(urlStorage = location.href, type1 = typeof this);
+                $(this).click(urlStorage = location.href, type1 = this.target);
                 test = Date();
                 console.log("url: " + urlStorage + "\n"
                     + "time: " + test + "\n"
