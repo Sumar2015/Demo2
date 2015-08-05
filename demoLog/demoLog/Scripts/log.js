@@ -1,8 +1,9 @@
 ﻿jQuery.fn.logPlugin = function () {
     var logArray = [];
+    var currArray = [];
     //inisialize logArray if not inisialized before
     if (localStorage.getItem("logArr") === null) {
-        logArray = {
+        currArray = {
             urlStorage: "",
             date: "",
             tag: "",
@@ -15,22 +16,22 @@
     //onClickHref function getting information when clicking link
     $(function onClickHref () {
         $("a").click(function (event) {
-            logArray = {
+           currArray = {
                 urlStorage: location.href,
                 date: Date(),
                 tag: event.target.tagName.toLowerCase(),
                 xCor: event.pageX,
                 yCor: event.pageY
             };
-            console.log(logArray);
+            console.log(currArray);
         });
     });
-    //setting logArray into locationStorage
+    //setting currArray into logArray
 
     //onClickButton function getting information when clicking a button
     $(function onClickButton() {
         $("button").click(function (event) {
-            logArray = {
+            currArray = {
                 name: event.target.name,
                 id: event.target.id,
                 date: Date(),
@@ -38,7 +39,7 @@
                 xCor: event.pageX,
                 yCor: event.pageY
             };
-            console.log(logArray);
+            console.log(currArray);
         });
     });
     //setting logArray into locationStorage
