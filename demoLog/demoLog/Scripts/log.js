@@ -10,6 +10,7 @@
             tag: "",
             id: "",
             name: "",
+            class: "",
             xCor: "",
             yCor: ""
             
@@ -31,6 +32,14 @@
         });
     });
 
+    //onClickButton function getting information when clicking an input
+    $(function onClickInput() {
+        $("input").click(function (event) {
+            dataInstall(event);
+            console.log(currArray);
+        });
+    });
+
     //installing data into currArray
     function dataInstall(ev) {
         currArray = {
@@ -39,6 +48,7 @@
             tag: event.target.tagName.toLowerCase(),
             id: event.target.id,
             name: event.target.name,
+            class: event.target.className,
             xCor: event.pageX,
             yCor: event.pageY
         };
