@@ -1,6 +1,7 @@
 ﻿jQuery.fn.logPlugin = function () {
     var logArray = [];
     var currArray = [];
+
     //inisialize logArray if not inisialized before
     if (localStorage.getItem("logArr") === null) {
         currArray = {
@@ -47,7 +48,7 @@
         });
     });
     //setting logArray into locationStorage
-    alert("stopper")
+    
 };
 
 $("*").logPlugin();
