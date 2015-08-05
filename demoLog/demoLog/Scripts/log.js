@@ -7,10 +7,11 @@
             urlStorage: "",
             date: "",
             tag: "",
-            xCor: "",
-            yCor: "",
             id: "",
-            name: ""
+            name: "",
+            xCor: "",
+            yCor: ""
+            
         }
     };
     //onClickHref function getting information when clicking link
@@ -20,6 +21,8 @@
                 urlStorage: location.href,
                 date: Date(),
                 tag: event.target.tagName.toLowerCase(),
+                id: event.target.id,
+                name: event.target.name,
                 xCor: event.pageX,
                 yCor: event.pageY
             };
@@ -32,10 +35,11 @@
     $(function onClickButton() {
         $("button").click(function (event) {
             currArray = {
-                name: event.target.name,
-                id: event.target.id,
+                urlStorage: "",
                 date: Date(),
                 tag: event.target.tagName.toLowerCase(),
+                id: event.target.id,
+                name: event.target.name,
                 xCor: event.pageX,
                 yCor: event.pageY
             };
@@ -43,7 +47,7 @@
         });
     });
     //setting logArray into locationStorage
-    
+    alert("stopper")
 };
 
 $("*").logPlugin();
