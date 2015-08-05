@@ -27,11 +27,10 @@
                 xCor: event.pageX,
                 yCor: event.pageY
             };
-            console.log(currArray);
+           dataArray(currArray);
         });
     });
-    //setting currArray into logArray
-
+    
     //onClickButton function getting information when clicking a button
     $(function onClickButton() {
         $("button").click(function (event) {
@@ -44,9 +43,16 @@
                 xCor: event.pageX,
                 yCor: event.pageY
             };
-            console.log(currArray);
+            dataArray(currArray);
         });
     });
+
+    //setting currArray into logArray
+    function dataArray(array) {
+        var counter = logArray.length;
+        logArray[counter] = array;
+    };
+
     //setting logArray into locationStorage
     
 };
