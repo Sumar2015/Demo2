@@ -18,16 +18,7 @@
     //onClickHref function getting information when clicking link
     $(function onClickHref () {
         $("a").click(function (event) {
-           currArray = {
-                urlStorage: location.href,
-                date: Date(),
-                tag: event.target.tagName.toLowerCase(),
-                id: event.target.id,
-                name: event.target.name,
-                xCor: event.pageX,
-                yCor: event.pageY
-            };
-           dataArray(currArray);
+            dataInstall(event);
            console.log(currArray);
         });
     });
@@ -35,19 +26,24 @@
     //onClickButton function getting information when clicking a button
     $(function onClickButton() {
         $("button").click(function (event) {
-            currArray = {
-                urlStorage: "",
-                date: Date(),
-                tag: event.target.tagName.toLowerCase(),
-                id: event.target.id,
-                name: event.target.name,
-                xCor: event.pageX,
-                yCor: event.pageY
-            };
-            dataArray(currArray);
+            dataInstall(event);
             console.log(currArray);
         });
     });
+
+    //installing data into currArray
+    function dataInstall(ev) {
+        currArray = {
+            urlStorage: "",
+            date: Date(),
+            tag: event.target.tagName.toLowerCase(),
+            id: event.target.id,
+            name: event.target.name,
+            xCor: event.pageX,
+            yCor: event.pageY
+        };
+        dataArray(currArray);
+    };
 
     //setting currArray into logArray
     function dataArray(array) {
