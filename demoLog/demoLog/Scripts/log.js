@@ -28,6 +28,7 @@
                 yCor: event.pageY
             };
            dataArray(currArray);
+           console.log(currArray);
         });
     });
     
@@ -44,6 +45,7 @@
                 yCor: event.pageY
             };
             dataArray(currArray);
+            console.log(currArray);
         });
     });
 
