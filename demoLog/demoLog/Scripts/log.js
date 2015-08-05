@@ -15,7 +15,8 @@
             yCor: ""
             
         }
-    };
+    };//todo: else condition to get old logArray from LS
+
     //onClickHref function getting information when clicking link
     $(function onClickHref () {
         $("a").click(function (event) {
