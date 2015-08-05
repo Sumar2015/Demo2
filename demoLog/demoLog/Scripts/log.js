@@ -17,30 +17,14 @@
         }
     };//todo: else condition to get old logArray from LS
 
-    //onClickHref function getting information when clicking link
-    $(function onClickHref () {
-        $("a").click(function (event) {
+    //onClick function getting information when clicking
+    $(function onClick () {
+        $("a, button, input, textarea, span, select").click(function (event) {
             dataInstall(event);
            console.log(currArray);
         });
     });
     
-    //onClickButton function getting information when clicking a button
-    $(function onClickButton() {
-        $("button").click(function (event) {
-            dataInstall(event);
-            console.log(currArray);
-        });
-    });
-
-    //onClickButton function getting information when clicking an input
-    $(function onClickInput() {
-        $("input").click(function (event) {
-            dataInstall(event);
-            console.log(currArray);
-        });
-    });
-
     //installing data into currArray
     function dataInstall(ev) {
         currArray = {
