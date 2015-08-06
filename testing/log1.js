@@ -1,5 +1,5 @@
 ﻿;
-$.yourlibrary().setMaxItems(20);
+//
 
 jQuery.fn.logPlugin = function () {
     var logArray = [];
