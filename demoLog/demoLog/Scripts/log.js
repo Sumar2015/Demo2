@@ -1,10 +1,10 @@
 ﻿jQuery.fn.logPlugin = function () {
     var logArray = [];
-    var currArray = [];
+    var currEvent = [];
 
     //inisialize logArray if not inisialized before
     if (localStorage.getItem("logArr") === null) {
-        currArray = {
+        currEvent = {
             urlStorage: "",
             date: "",
             tag: "",
@@ -22,7 +22,7 @@
     $(function onClick() {
         $("a, button, input, textarea, span, select").click(function (event) {
             dataInstall(event);
-           console.log(currArray);
+           console.log(currEvent);
         });
     });
 
@@ -30,14 +30,14 @@
         $("a, button, input, textarea, span, select").keypress(function (event) {
             if (event.which == 9 || event.keycode == 9) {
                 dataInstall(event);
-                console.log(currArray);
+                console.log(currEvent);
             }
         });
     });
     
     //installing data into currArray
     function dataInstall(ev) {
-        currArray = {
+        currEvent = {
             urlStorage: location.href,
             date: Date(),
             tag: event.target.tagName.toLowerCase(),
@@ -48,7 +48,7 @@
             xCor: event.pageX,
             yCor: event.pageY
         };
-        dataArray(currArray);
+        dataArray(currEvent);
     };
 
     //setting currArray into logArray
