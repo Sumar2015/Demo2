@@ -17,7 +17,8 @@
 
         }
     } else {
-        logArray = localStorage.getItem("logArr");//not right move here...
+        logArray = JSON.parse(localStorage.getItem("logArr"));//not right move here...
+        console.log("else condition: " + JSON.stringify(logArray));
     };
 
     //onClick function getting information when clicking
@@ -58,10 +59,10 @@
         logArray.push(JSON.stringify(array));
         
         for (var i = 0; i < logArray.length; i++) {
-            console.log("logArray: " + i + " = " + logArray[i]);
+            console.log("logArray inside dataArray: " + i + " = " + logArray[i]);
         };
-        //localStorage.setItem("logArr", JSON.stringify(logArray));
-        //localStorage.clear;
+        localStorage.setItem("logArr", JSON.stringify(logArray));
+        //localStorage.clear();
     };
 };
 
