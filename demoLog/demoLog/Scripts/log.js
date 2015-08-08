@@ -3,7 +3,7 @@
     var currEvent = [];
 
     //inisialize logArray if not inisialized before
-    if (localStorage.getItem("logArr") === null) {
+    if (localStorage.getItem("logArr") == null) {
         currEvent = {
             urlStorage: "",
             date: "",
@@ -14,28 +14,28 @@
             event: "",
             xCor: "",
             yCor: ""
-            
+
         }
-    };//todo: else condition to get old logArray from LS
+    } else {
+        logArray = localStorage.getItem("logArr");//not right move here...
+    };
 
     //onClick function getting information when clicking
     $(function onClick() {
         $("a, button, input, textarea, span, select").click(function (event) {
             dataInstall(event);
-           console.log(currEvent);
         });
     });
 
+    //onKeyPress function getting information when pressing the keybord 
     $(function onKeyPress() {
         $("a, button, input, textarea, span, select").keypress(function (event) {
             if (event.which == 9 || event.keycode == 9) {
-                dataInstall(event);
-                console.log(currEvent);
-            }
+                dataInstall(event);            }
         });
     });
     
-    //installing data into currArray
+    //installing data into currEvent
     function dataInstall(ev) {
         currEvent = {
             urlStorage: location.href,
@@ -49,16 +49,20 @@
             yCor: event.pageY
         };
         dataArray(currEvent);
+        //console.log(currEvent);
     };
 
-    //setting currArray into logArray
+    //installing currEvent into logArray and in that process copy logArray
+    //into localStorage
     function dataArray(array) {
-        var counter = logArray.length;
-        logArray[counter] = array;
+        logArray.push(JSON.stringify(array));
+        
+        for (var i = 0; i < logArray.length; i++) {
+            console.log("logArray: " + i + " = " + logArray[i]);
+        };
+        //localStorage.setItem("logArr", JSON.stringify(logArray));
+        //localStorage.clear;
     };
-
-    //setting logArray into locationStorage
-    
 };
 
 $("*").logPlugin();
