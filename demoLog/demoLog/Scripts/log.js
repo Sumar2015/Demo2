@@ -21,14 +21,14 @@
         console.log("else condition: " + JSON.stringify(logArray));
     };
     
-    //onClick function getting information when clicking
+    //onClick function getting information when clicked with mouse
     $(function onClick() {
         $("a, button, input, textarea, span, select").mousedown(function (event) {
             dataInstall(event);    
         });
     });
     
-    //onKeyPress function getting information when pressing the keybord 
+    //onKeyPress function getting information when pressing the key enter 
     $(function onKeyPress() {
         $("a, button, input, textarea, span, select").keypress(function (event) {
             if (event.which === 13 || event.keycode === 13) {
@@ -62,7 +62,7 @@
             logArray.length = 0;
         } else {
             logArray.push(JSON.stringify(array));
-        }
+        };
         for (var i = 0; i < logArray.length; i++) {
             console.log("logArray inside dataArray: " + i + " = " + logArray[i]);
         };
