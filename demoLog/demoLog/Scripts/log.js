@@ -1,4 +1,5 @@
 ﻿jQuery.fn.logPlugin = function () {
+    var noEvents = 20;
     var logArray = [];
     var currEvent = [];
 
@@ -52,6 +53,10 @@
         };
         dataArray(currEvent);
         //console.log(currEvent);
+        if(dataArray.length == noEvents)
+        {
+            dataArray.pop();
+        }
     };
 
     //installing currEvent into logArray and in that process copy logArray
