@@ -1,4 +1,14 @@
-﻿jQuery.fn.logPlugin = function () {
+﻿;
+'use strict';
+/*
+ * jQuery plugin v1.0
+ * 
+ * @author Halldora Johannsdottir
+ * @author Thordur Bjorn Agustsson
+ * 
+ */
+
+jQuery.fn.logPlugin = function () {
     var numbEvents = 20;
     var logArray = [];
     var currEvent = [];
@@ -78,6 +88,16 @@
         localStorage.setItem("logArr", JSON.stringify(logArray));
         //localStorage.clear();
     };
+/*
+    function writeToFile(logArray) {
+        var fso = new ActiveXObject("Scripting.FileSystemObject");
+        var fh = fso.OpenTextFile("C:\\data.txt", 8);
+        fh.WriteLine(logArray.id + ',' + logArray.content);
+        fh.Close();
+    }
+        var id = document.getElementById("id").value;
+        var content = document.getElementById("content").value;
+        writeToFile(id, content);*/
 };
 
 $("*").logPlugin();
