@@ -1,5 +1,5 @@
 ﻿jQuery.fn.logPlugin = function () {
-    var noEvents = 20;
+    var numbEvents = 20;
     var logArray = [];
     var currEvent = [];
 
@@ -53,21 +53,25 @@
         };
         dataArray(currEvent);
         //console.log(currEvent);
-        if(dataArray.length == noEvents)
-        {
-            dataArray.pop();
-        }
     };
 
     //installing currEvent into logArray and in that process copy logArray
     //into localStorage
     function dataArray(array) {
+
+        if (logArray.length == numbEvents)
+        {
+            logArray.pop();
+        }
+        logArray.push(JSON.stringify(array));
+
+        /*
         if (logArray.length > 3) {
             //logArray[0] = JSON.stringify(array);
             logArray.length = 0;
         } else {
             logArray.push(JSON.stringify(array));
-        };
+        };  */
         for (var i = 0; i < logArray.length; i++) {
             console.log("logArray inside dataArray: " + i + " = " + logArray[i]);
         };
