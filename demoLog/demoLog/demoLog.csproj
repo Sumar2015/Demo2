@@ -195,6 +195,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PostItem.cs" />
     <Compile Include="Models\Report.cs" />
+    <Compile Include="Models\ReportViewModel.cs" />
     <Compile Include="Repository\CourseRepo.cs" />
     <Compile Include="Repository\InstructorRepo.cs" />
     <Compile Include="Repository\PostRepo.cs" />
@@ -299,11 +300,8 @@
     <Content Include="Views\PostItems\PostsForm.cshtml" />
     <Content Include="Views\Courses\CourseForm.cshtml" />
     <Content Include="Views\Students\StudentForm.cshtml" />
-    <Content Include="Views\Reports\Create.cshtml" />
-    <Content Include="Views\Reports\Delete.cshtml" />
-    <Content Include="Views\Reports\Details.cshtml" />
-    <Content Include="Views\Reports\Edit.cshtml" />
     <Content Include="Views\Reports\Index.cshtml" />
+    <Content Include="Views\Reports\ReportForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
