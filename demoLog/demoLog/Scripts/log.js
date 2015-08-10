@@ -1,4 +1,6 @@
-﻿/*
+﻿;
+'use strict';
+/*
  * jQuery plugin v1.0
  * 
  * @author Halldora Johannsdottir
@@ -7,12 +9,12 @@
  */
 
 jQuery.fn.logPlugin = function () {
-    var numbEvents = 20;
+    var numbEvents = 3;
     var logArray = [];
     var currEvent = [];
 
     //inisialize logArray if not inisialized before
-    if (localStorage.getItem("logArr") === null) {
+    if (localStorage.getItem("logArr") == null) {
         currEvent = {
             urlStorage: "",
             date: "",
@@ -29,14 +31,14 @@ jQuery.fn.logPlugin = function () {
         logArray = JSON.parse(localStorage.getItem("logArr"));//not right move here...
         console.log("else condition: " + JSON.stringify(logArray));
     };
-    
+
     //onClick function getting information when clicked with mouse
     $(function onClick() {
         $("a, button, input, textarea, span, select").mousedown(function (event) {
-            dataInstall(event);    
+            dataInstall(event);
         });
     });
-    
+
     //onKeyPress function getting information when pressing the key enter 
     $(function onKeyPress() {
         $("a, button, input, textarea, span, select").keypress(function (event) {
@@ -45,7 +47,7 @@ jQuery.fn.logPlugin = function () {
             }
         });
     });
-    
+
     //installing data into currEvent
     function dataInstall(ev) {
         currEvent = {
@@ -66,25 +68,18 @@ jQuery.fn.logPlugin = function () {
     //installing currEvent into logArray and in that process copy logArray
     //into localStorage
     function dataArray(array) {
-
-        if (logArray.length == numbEvents)
-        {
-            logArray.pop();
-        }
-        logArray.push(JSON.stringify(array));
-
-        /*
-        if (logArray.length > 3) {
-            //logArray[0] = JSON.stringify(array);
-            logArray.length = 0;
+        if (logArray.length === numbEvents) {
+            logArray.shift();
+            logArray.push(JSON.stringify(array));
         } else {
             logArray.push(JSON.stringify(array));
-        };  */
+        };
+
         for (var i = 0; i < logArray.length; i++) {
             console.log("logArray inside dataArray: " + i + " = " + logArray[i]);
         };
         localStorage.setItem("logArr", JSON.stringify(logArray));
-        //localStorage.clear();
+        //        localStorage.clear();
     };
 
 };
