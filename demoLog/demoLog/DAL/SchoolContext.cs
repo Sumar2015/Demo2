@@ -21,6 +21,7 @@ namespace demoLog.DAL
         public DbSet<Enrollment> Enrollments { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<PostItem> Posts { get; set; }
+        public DbSet<Report> Reports { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

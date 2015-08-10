@@ -1,6 +1,4 @@
-﻿;
-'use strict';
-/*
+﻿/*
  * jQuery plugin v1.0
  * 
  * @author Halldora Johannsdottir
@@ -14,7 +12,7 @@ jQuery.fn.logPlugin = function () {
     var currEvent = [];
 
     //inisialize logArray if not inisialized before
-    if (localStorage.getItem("logArr") == null) {
+    if (localStorage.getItem("logArr") === null) {
         currEvent = {
             urlStorage: "",
             date: "",
