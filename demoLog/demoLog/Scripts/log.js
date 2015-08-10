@@ -1,6 +1,4 @@
-﻿;
-'use strict';
-/*
+﻿/*
  * jQuery plugin v1.0
  * 
  * @author Halldora Johannsdottir
