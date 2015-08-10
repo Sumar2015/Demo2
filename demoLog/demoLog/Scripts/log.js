@@ -69,14 +69,15 @@ jQuery.fn.logPlugin = function () {
         if (logArray.length === numbEvents) {
             logArray.shift();
             logArray.push(JSON.stringify(array));
+            localStorage.setItem("logArr", JSON.stringify(logArray));
         } else {
             logArray.push(JSON.stringify(array));
+            localStorage.setItem("logArr", JSON.stringify(logArray));
         };
 
         for (var i = 0; i < logArray.length; i++) {
             console.log("logArray inside dataArray: " + i + " = " + logArray[i]);
         };
-        localStorage.setItem("logArr", JSON.stringify(logArray));
         //        localStorage.clear();
     };
 
