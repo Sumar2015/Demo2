@@ -45,13 +45,13 @@
                 @Html.ValidationMessageFor(model => model.DateCreated, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Submit" class="btn btn-default" />
+        <form method="get" action="mailto:halldorajohannsd@gmail.com" enctype="text/plain">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Send Report" class="btn btn-default" />
+                </div>
             </div>
-        </div>
-
+        </form>
         <div class="form-group">
             <script type="text/javascript">
                 var obj = localStorage.getItem("logArr");
@@ -62,12 +62,12 @@
                     document.write(index + ": " + data + "<br>");
                 });
                 //document.write(string);
-                
+
                 //alert(result);
-                
+
             </script>
         </div>
-    </div>
+</div>
 }
 
 @section Scripts {
