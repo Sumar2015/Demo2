@@ -54,8 +54,16 @@
 
         <div class="form-group">
             <script type="text/javascript">
-              
-                document.write(localStorage.getItem("logArr"));
+                var obj = localStorage.getItem("logArr");
+                var string = obj.split(/[\,\[\]\\\{\}\"]+/g).toString();
+                string = string.replace(/\,+/g, " ");
+                var result = string.split("urlStorage");
+                $.each(result, function (index, data) {
+                    document.write(index + ": " + data + "<br>");
+                });
+                //document.write(string);
+                
+                //alert(result);
                 
             </script>
         </div>
