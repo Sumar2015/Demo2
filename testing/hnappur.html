@@ -22,9 +22,19 @@
 
 		<br />
 			
-			<input type="textarea" id="text1" name="texti" class="textar"></input>
-			
-		
-
+			<center>
+				<form method=post action="mailto:hj02@$ru.is" enctype="text/plain">
+					<input type="text" name="username"> : name <br>
+					<input type="text" name="email"> : email <br>
+					comments <br>
+					<textarea name="comments" rows="10" wrap="hard">
+					</textarea>
+					<input name="redirect" type="hidden" value="index.html">
+					<input name="next_url" type="hidden" value="index.html">
+					<br>
+					<input type="submit" value="Send">
+					<input type="reset" value="Clear">
+				</form>
+			</center>
 	</body>
 </html>
