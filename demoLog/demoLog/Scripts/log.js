@@ -7,7 +7,16 @@
  */
 
 jQuery.fn.logPlugin = function () {
+    /* Variable that holds the size of the logArray,
+     * here user can change the size the way user wants
+     * it to be.
+     */
     var numbEvents = 3;
+    /* Variable that holds the elements in a string for the function to work with,
+     * here user can add or remove element for the function to grab.
+     */
+    var elements = "a, button, input, textarea, span, select";
+
     var logArray = [];
     var currEvent = [];
 
@@ -32,14 +41,14 @@ jQuery.fn.logPlugin = function () {
 
     //onClick function getting information when clicked with mouse
     $(function onClick() {
-        $("a, button, input, textarea, span, select").mousedown(function (event) {
+        $(elements).mousedown(function (event) {
             dataInstall(event);
         });
     });
 
     //onKeyPress function getting information when pressing the key enter 
     $(function onKeyPress() {
-        $("a, button, input, textarea, span, select").keypress(function (event) {
+        $(elements).keypress(function (event) {
             if (event.which === 13 || event.keycode === 13) {
                 dataInstall(event);
             }
