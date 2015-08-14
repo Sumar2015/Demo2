@@ -57,7 +57,7 @@ namespace demoLog.Controllers
             if (ModelState.IsValid)
             {
                 adminRepo.AddReport(admin);
-                return RedirectToAction("Index");
+                return RedirectToAction("Home/Index");
             }
 
             return View(admin);
