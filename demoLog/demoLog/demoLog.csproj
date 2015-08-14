@@ -168,12 +168,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Data\Database1.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminsController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstructorsController.cs" />
@@ -186,7 +188,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\CourseViewModel.cs" />
     <Compile Include="Models\Enrollment.cs" />
@@ -196,6 +201,7 @@
     <Compile Include="Models\PostItem.cs" />
     <Compile Include="Models\Report.cs" />
     <Compile Include="Models\ReportViewModel.cs" />
+    <Compile Include="Repository\AdminRepo.cs" />
     <Compile Include="Repository\CourseRepo.cs" />
     <Compile Include="Repository\InstructorRepo.cs" />
     <Compile Include="Repository\PostRepo.cs" />
@@ -306,6 +312,12 @@
     <Content Include="Views\Students\StudentForm.cshtml" />
     <Content Include="Views\Reports\Index.cshtml" />
     <Content Include="Views\Reports\ReportForm.cshtml" />
+    <Content Include="Views\Admins\Create.cshtml" />
+    <Content Include="Views\Admins\Delete.cshtml" />
+    <Content Include="Views\Admins\Details.cshtml" />
+    <Content Include="Views\Admins\Edit.cshtml" />
+    <Content Include="Views\Admins\Index.cshtml" />
+    <Content Include="Views\Admins\AdminForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utilities\" />
