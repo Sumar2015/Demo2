@@ -11,7 +11,8 @@ jQuery.fn.logPlugin = function () {
      * here user can change the size the way user wants
      * it to be.
      */
-    var numbEvents = 3;
+
+    var numbEvents = setCount(number);
     /* Variable that holds the elements in a string for the function to work with,
      * here user can add or remove element for the function to grab.
      */
@@ -37,6 +38,11 @@ jQuery.fn.logPlugin = function () {
     } else {
         logArray = JSON.parse(localStorage.getItem("logArr"));//not right move here...
         console.log("else condition: " + JSON.stringify(logArray));
+    };
+
+    function setCount(number) {
+        var count = number;
+        return count;
     };
 
     //onClick function getting information when clicked with mouse
