@@ -14,58 +14,57 @@
         @Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)
     </p>
 
-    <div id="div01" onload="getValue">
+    <div id="div01">
         <p id="p01">
             User logHistory: <br />
         </p>
-        @Html.DisplayFor(model => model.Array)
+        @Html.HiddenFor(model => model.Array)
         <script>
-            $(document).ready(function getValue() {
-                var test = document.getElementById("div01");
-                alert(test.innerText);
-
-            });
+            
+                var string = $("#Array").val();
+                string = string.split(/[\,\[\]\\\}\"]+/g).toString();
+                string = string.replace(/\,/g, " ");
+                var stringArr = string.split(/\{+/g);
+                var locDate, locTag, locId, locName, locClass, locEvent, locX, locY, urlString, dateString, tagString, idString, nameString, classString, eventString, xString, yString;
+                stringArr.shift();
+                $.each(stringArr, function (index, data) {
+                    //getting location for words to cut the string in pieces
+                    locDate = stringArr[index].indexOf("date");
+                    locTag = stringArr[index].indexOf("tag");
+                    locId = stringArr[index].indexOf("id");
+                    locName = stringArr[index].indexOf("name");
+                    locClass = stringArr[index].indexOf("class");
+                    locEvent = stringArr[index].indexOf("event");
+                    locX = stringArr[index].indexOf("xCor");
+                    locY = stringArr[index].indexOf("yCor");
+                    locEnd = stringArr[index].lastIndexOf("ycor");
+                    //cutting the stringArr into pieces
+                    urlString = stringArr[index].slice(0, locDate);
+                    dateString = stringArr[index].slice(locDate, locTag);
+                    tagString = stringArr[index].slice(locTag, locId);
+                    idString = stringArr[index].slice(locId, locName);
+                    nameString = stringArr[index].slice(locName, locClass);
+                    classString = stringArr[index].slice(locClass, locEvent);
+                    eventString = stringArr[index].slice(locEvent, locX);
+                    xString = stringArr[index].slice(locX, locY);
+                    yString = stringArr[index].slice(locY, locEnd);
+                    
+                    document.write(index + 1 + urlString + "<br>"
+                        + dateString + "<br>"
+                        + tagString + "<br>"
+                        + idString + "<br>"
+                        + nameString + "<br>"
+                        + classString + "<br>"
+                        + eventString + "<br>"
+                        + xString + "<br>"
+                        + yString + "<br>"
+                        + "<hr>" + "<br>");
+                });
+            
         </script>
     </div>
 </div>
-@*<div>
-    <h4>Admin</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Array)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Array)
-        </dd>
-
-    </dl>
-</div>*@
 <p>
     @Html.ActionLink("Delete logHistory", "Delete", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")

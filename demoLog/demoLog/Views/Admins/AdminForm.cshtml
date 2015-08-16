@@ -53,10 +53,11 @@
                 var string = obj.split(/[\,\[\]\\\}\"]+/g).toString();
                 string = string.replace(/\,+/g, " ");
                 var result = string.split("{");
+                result.shift();
                 $.each(result, function (index, data) {
                     document.write(index + ": " + data + "<br>");
                 });
-                $("input").click(function () {
+                $("input").ready(function () {
                     $("#Array").val(obj.toString());
                 });
                 </script>
