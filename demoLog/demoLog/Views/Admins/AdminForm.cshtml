@@ -49,17 +49,19 @@
             @Html.LabelFor(model => model.Array, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <script type="text/javascript">
-                var obj = localStorage.getItem("logArr");
-                var string = obj.split(/[\,\[\]\\\}\"]+/g).toString();
-                string = string.replace(/\,+/g, " ");
-                var result = string.split("{");
-                result.shift();
-                $.each(result, function (index, data) {
-                    document.write(index + ": " + data + "<br>");
-                });
-                $("input").ready(function () {
-                    $("#Array").val(obj.toString());
-                });
+                    $(document).ready(function () {
+                        //var obj = localStorage.getItem("logArr"); 
+                        console.log(jQuery);
+                        var obj = jQuery.logPlugin.getArray();
+                        var string = obj.split(/[\,\[\]\\\}\"]+/g).toString();
+                        string = string.replace(/\,+/g, " ");
+                        var result = string.split("{");
+                        result.shift();
+                        
+                        $("input").ready(function () {
+                            $("#Array").val(obj.toString());
+                        });
+                    });
                 </script>
                 <input type="hidden" name="Array" id="Array" value="" />
             </div>
